@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #22c55e;
+body {
+  font-family: var(--font-geist-sans);
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* Melhorias visuais para o app */
+.card {
+  @apply bg-zinc-900 border border-zinc-800 rounded-2xl;
+}
+
+input {
+  @apply bg-zinc-900 border-zinc-800 focus:border-white/50;
 }
