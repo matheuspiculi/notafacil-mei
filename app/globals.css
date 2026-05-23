@@ -2,15 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-geist-sans);
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
 }
 
-/* Melhorias visuais para o app */
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+}
+
+body {
+  font-family: var(--font-geist-sans);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Melhorias visuais */
 .card {
-  @apply bg-zinc-900 border border-zinc-800 rounded-2xl;
+  @apply bg-zinc-900 border border-zinc-800 rounded-2xl dark:bg-zinc-900;
 }
 
 input {
-  @apply bg-zinc-900 border-zinc-800 focus:border-white/50;
+  @apply bg-zinc-900 border-zinc-800 focus:border-white/50 dark:bg-zinc-900;
+}
+
+/* Suporte a tema claro */
+.light .card {
+  @apply bg-white border-zinc-200 shadow-sm;
+}
+
+.light input {
+  @apply bg-white border-zinc-300;
 }
