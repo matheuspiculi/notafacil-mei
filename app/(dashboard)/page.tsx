@@ -163,23 +163,18 @@ export default function Dashboard() {
                     <span className="font-medium">{stats.ultimaNota.descricao}</span>
                   </div>
                   <p className="text-sm text-zinc-400 mt-1">
-                    {new Intl.DateTimeFormat('pt-BR').format(new Date(stats.ultimaNota.emitted_at))}
+                    {formatarValor(stats.ultimaNota.valor)}
                   </p>
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-green-500">
-                    {formatarValor(stats.ultimaNota.valor)}
-                  </div>
-                </div>
+                <p className="text-xs text-zinc-500">
+                  {new Intl.DateTimeFormat('pt-BR').format(new Date(stats.ultimaNota.emitted_at))}
+                </p>
               </CardContent>
             </Card>
           ) : (
             <Card>
-              <CardContent className="py-12 text-center">
-                <p className="text-zinc-400">Nenhuma nota emitida ainda.</p>
-                <a href="/emitir" className="text-blue-400 hover:underline mt-2 inline-block">
-                  Emitir primeira nota →
-                </a>
+              <CardContent className="p-12 text-center text-zinc-400">
+                Nenhuma nota emitida ainda
               </CardContent>
             </Card>
           )}
