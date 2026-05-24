@@ -23,18 +23,13 @@ export default function FinalLanding() {
 
       {/* HERO */}
       <div className="pt-20 pb-16 px-6 max-w-5xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 bg-zinc-900 px-5 py-1.5 rounded-full mb-8 border border-zinc-800">
-          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-          <span className="text-sm font-medium">Beta aberto • 187 MEIs usando</span>
-        </div>
-
         <h1 className="text-7xl md:text-[92px] font-bold tracking-tighter leading-none mb-8">
           Venda.<br />Pix cai.<br />
           <span className="text-emerald-500">Nota sai.</span><br />Automaticamente.
         </h1>
 
         <p className="text-2xl text-zinc-400 max-w-2xl mx-auto mb-12">
-          O SaaS que se vende sozinho para MEIs. Conecte sua conta e sua loja em 3 minutos.
+          Economize horas toda semana com emissão automática de notas fiscais. Conecte sua conta e loja em minutos e foque no crescimento do seu negócio.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
