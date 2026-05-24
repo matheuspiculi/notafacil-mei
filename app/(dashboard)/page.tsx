@@ -1,15 +1,10 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@/lib/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { FileText, DollarSign, TrendingUp, Calendar } from 'lucide-react';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
 
 interface DashboardStats {
   notasEsteMes: number;
@@ -32,6 +27,7 @@ export default function Dashboard() {
   }, []);
 
   const carregarEstatisticas = async () => {
+    const supabase = createClient();
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
@@ -139,8 +135,8 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-bold">
-              {stats.notasEsteMes > 0 
-                ? formatarValor(stats.faturamentoEsteMes / stats.notasEsteMes) 
+              {stats.notasEsteMês > 0 
+                ? formatarValor(stats.faturamentoEsteMês / stats.notasEsteMês) 
                 : 'R$ 0,00'}
             </div>
             <p className="text-xs text-zinc-400 mt-1">Média mensal</p>
