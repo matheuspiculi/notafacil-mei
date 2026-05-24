@@ -7,9 +7,8 @@ export default function PricingPage() {
       price: '0',
       period: 'para sempre',
       features: [
-        '40 notas fiscais/mês',
+        '30 notas fiscais/mês',
         '1 conta bancária',
-        'Exportação manual para contador',
         'Suporte por e-mail'
       ],
       cta: 'Continuar no grátis',
@@ -21,10 +20,9 @@ export default function PricingPage() {
       period: 'por mês',
       features: [
         'Notas ilimitadas',
-        'Até 5 contas bancárias',
+        'Até 3 contas bancárias',
         'IA de classificação automática',
         'Export automático para contador',
-        'WhatsApp Bot (em breve)',
         'Suporte prioritário'
       ],
       cta: 'Assinar Pro agora',
@@ -37,10 +35,7 @@ export default function PricingPage() {
       features: [
         'Tudo do Pro',
         'Portal do Contador',
-        'Múltiplos MEIs',
-        'API de integração',
-        'Relatórios avançados',
-        'Onboarding personalizado'
+        'Relatórios avançados'
       ],
       cta: 'Falar com vendas',
       popular: false
