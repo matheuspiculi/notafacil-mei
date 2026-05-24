@@ -135,8 +135,8 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-bold">
-              {stats.notasEsteMês > 0 
-                ? formatarValor(stats.faturamentoEsteMês / stats.notasEsteMês) 
+              {stats.notasEsteMes > 0 
+                ? formatarValor(stats.faturamentoEsteMes / stats.notasEsteMes) 
                 : 'R$ 0,00'}
             </div>
             <p className="text-xs text-zinc-400 mt-1">Média mensal</p>
