@@ -1,25 +1,25 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 
 export default function ConfiguracaoMEI() {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [perfil, setPerfil] = useState({
-    cnpj: '',
-    razao_social: '',
-    nome_fantasia: '',
-    telefone: '',
-    cep: '',
-    rua: '',
-    numero: '',
-    bairro: '',
-    cidade: '',
-    estado: ''
+    cnpj: "",
+    razao_social: "",
+    nome_fantasia: "",
+    telefone: "",
+    cep: "",
+    rua: "",
+    numero: "",
+    bairro: "",
+    cidade: "",
+    estado: ""
   });
 
   useEffect(() => {
@@ -29,26 +29,26 @@ export default function ConfiguracaoMEI() {
   const carregarPerfil = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/mei/perfil');
+      const res = await fetch("/api/mei/perfil");
       if (res.ok) {
         const data = await res.json();
         if (data.perfil) {
           setPerfil({
-            cnpj: data.perfil.cnpj || '',
-            razao_social: data.perfil.razao_social || '',
-            nome_fantasia: data.perfil.nome_fantasia || '',
-            telefone: data.perfil.telefone || '',
-            cep: data.perfil.endereco?.cep || '',
-            rua: data.perfil.endereco?.rua || '',
-            numero: data.perfil.endereco?.numero || '',
-            bairro: data.perfil.endereco?.bairro || '',
-            cidade: data.perfil.endereco?.cidade || '',
-            estado: data.perfil.endereco?.estado || ''
+            cnpj: data.perfil.cnpj || "",
+            razao_social: data.perfil.razao_social || "",
+            nome_fantasia: data.perfil.nome_fantasia || "",
+            telefone: data.perfil.telefone || "",
+            cep: data.perfil.endereco?.cep || "",
+            rua: data.perfil.endereco?.rua || "",
+            numero: data.perfil.endereco?.numero || "",
+            bairro: data.perfil.endereco?.bairro || "",
+            cidade: data.perfil.endereco?.cidade || "",
+            estado: data.perfil.endereco?.estado || ""
           });
         }
       }
     } catch (error) {
-      console.error('Erro ao carregar perfil:', error);
+      console.error("Erro ao carregar perfil:", error);
     } finally {
       setLoading(false);
     }
@@ -66,9 +66,9 @@ export default function ConfiguracaoMEI() {
         estado: perfil.estado
       };
 
-      const res = await fetch('/api/mei/perfil', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/mei/perfil", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           cnpj: perfil.cnpj,
           razao_social: perfil.razao_social,
@@ -79,19 +79,19 @@ export default function ConfiguracaoMEI() {
       });
 
       if (res.ok) {
-        alert('Perfil salvo com sucesso!');
+        alert("Perfil salvo com sucesso!");
       } else {
-        alert('Erro ao salvar perfil');
+        alert("Erro ao salvar perfil");
       }
     } catch (error) {
-      alert('Erro ao salvar');
+      alert("Erro ao salvar");
     } finally {
       setSaving(false);
     }
   };
 
   const handleChange = (field: string, value: string) => {
-    setPerfil(prev => ({ ...prev, [field]: value }));
+    setPerfil((prev) => ({ ...prev, [field]: value }));
   };
 
   if (loading) {
@@ -111,18 +111,18 @@ export default function ConfiguracaoMEI() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label>CNPJ</Label>
-              <Input 
-                value={perfil.cnpj} 
-                onChange={(e) => handleChange('cnpj', e.target.value)}
-                placeholder="00.000.000/0001-00" 
+              <Input
+                value={perfil.cnpj}
+                onChange={(e) => handleChange("cnpj", e.target.value)}
+                placeholder="00.000.000/0001-00"
               />
             </div>
             <div>
               <Label>Razão Social</Label>
-              <Input 
-                value={perfil.razao_social} 
-                onChange={(e) => handleChange('razao_social', e.target.value)}
-                placeholder="Nome Completo MEI" 
+              <Input
+                value={perfil.razao_social}
+                onChange={(e) => handleChange("razao_social", e.target.value)}
+                placeholder="Nome Completo MEI"
               />
             </div>
           </div>
@@ -130,18 +130,18 @@ export default function ConfiguracaoMEI() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label>Nome Fantasia</Label>
-              <Input 
-                value={perfil.nome_fantasia} 
-                onChange={(e) => handleChange('nome_fantasia', e.target.value)}
-                placeholder="Nome Fantasia (opcional)" 
+              <Input
+                value={perfil.nome_fantasia}
+                onChange={(e) => handleChange("nome_fantasia", e.target.value)}
+                placeholder="Nome Fantasia (opcional)"
               />
             </div>
             <div>
               <Label>Telefone</Label>
-              <Input 
-                value={perfil.telefone} 
-                onChange={(e) => handleChange('telefone', e.target.value)}
-                placeholder="(11) 99999-9999" 
+              <Input
+                value={perfil.telefone}
+                onChange={(e) => handleChange("telefone", e.target.value)}
+                placeholder="(11) 99999-9999"
               />
             </div>
           </div>
@@ -151,58 +151,59 @@ export default function ConfiguracaoMEI() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <Label>CEP</Label>
-                <Input 
-                  value={perfil.cep} 
-                  onChange={(e) => handleChange('cep', e.target.value)}
-                  placeholder="00000-000" 
+                <Input
+                  value={perfil.cep}
+                  onChange={(e) => handleChange("cep", e.target.value)}
+                  placeholder="00000-000
+"
               </div>
               <div className="md:col-span-2">
                 <Label>Rua / Logradouro</Label>
-                <Input 
-                  value={perfil.rua} 
-                  onChange={(e) => handleChange('rua', e.target.value)}
-                  placeholder="Rua Exemplo" 
+                <Input
+                  value={perfil.rua}
+                  onChange={(e) => handleChange("rua", e.target.value)}
+                  placeholder="Rua Exemplo"
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <div>
                 <Label>Número</Label>
-                <Input 
-                  value={perfil.numero} 
-                  onChange={(e) => handleChange('numero', e.target.value)}
+                <Input
+                  value={perfil.numero}
+                  onChange={(e) => handleChange("numero", e.target.value)}
                 </div>
               <div>
                 <Label>Bairro</Label>
-                <Input 
-                  value={perfil.bairro} 
-                  onChange={(e) => handleChange('bairro', e.target.value)}
+                <Input
+                  value={perfil.bairro}
+                  onChange={(e) => handleChange("bairro", e.target.value)}
                 </div>
               <div>
                 <Label>Cidade</Label>
-                <Input 
-                  value={perfil.cidade} 
-                  onChange={(e) => handleChange('cidade', e.target.value)}
+                <Input
+                  value={perfil.cidade}
+                  onChange={(e) => handleChange("cidade", e.target.value)}
                 </div>
             </div>
 
             <div className="mt-4">
               <Label>Estado (UF)</Label>
-              <Input 
-                value={perfil.estado} 
-                onChange={(e) => handleChange('estado', e.target.value)}
-                placeholder="SP" 
+              <Input
+                value={perfil.estado}
+                onChange={(e) => handleChange("estado", e.target.value)}
+                placeholder="SP"
                 maxLength={2}
               }
             </div>
           </div>
 
-          <Button 
-            onClick={salvarPerfil} 
+          <Button
+            onClick={salvarPerfil}
             disabled={saving}
             className="w-full mt-6"
           >
-            {saving ? 'Salvando...' : 'Salvar Configurações'}
+            {saving ? "Salvando..." : "Salvar Configurações"}
           </Button>
         </CardContent>
       </Card>
