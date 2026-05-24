@@ -28,7 +28,3 @@ Venda → Pix cai → Nota sai automaticamente. Conecte sua conta em 3 minutos e
 - `/historico` → Todas as notas emitidas
 
 **Feito para MEIs que querem simplicidade e velocidade.**
-
----
-
-**Sem beta. Pronto para uso real.**
