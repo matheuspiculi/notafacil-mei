@@ -1,0 +1,1 @@
+the content from app/emitir/page.tsx
